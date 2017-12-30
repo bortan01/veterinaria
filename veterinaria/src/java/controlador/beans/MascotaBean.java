@@ -11,6 +11,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import modelo.entidades.Mascota;
 import session.beans.MascotaFacade;
+import utils.general.AutocompleteBeanEspecie;
+import utils.general.AutocompleteBeanDuenio;
 
 @ManagedBean(name = "mascotaBean")
 @ViewScoped
@@ -18,9 +20,13 @@ public class MascotaBean implements Serializable {
 
     @Inject
     MascotaFacade mascotaFac;
-   
+
+//     @ManagedProperty("#{autocompleteBeanDuenio}")
+//     AutocompleteBeanDuenio auD;
+
+    @ManagedProperty("#{autocompleteBeanEspecie}")
+    AutocompleteBeanEspecie auE;  
     
-        
     Mascota mascotaSeleccionado;
     List<Mascota> listaMascota;
     List<Mascota> MascotaFiltrado;
@@ -38,20 +44,22 @@ public class MascotaBean implements Serializable {
         listaMascota = mascotaFac.findAll();
         return listaMascota;
     }
+
     public String eliminarDoctor() {
         mascotaFac.remove(mascotaSeleccionado);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "informacion", "Datos Eliminados"));
         return "listar_mascota.xhtml?faces-redirect=true";
     }
-    
+
     public String actualizarDoctor() {
         mascotaFac.edit(mascotaSeleccionado);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "informacion", "Datos Modificados"));
         return "listar_mascota.xhtml?faces-redirect=true";
     }
-  public String insertarDoctor() {
+
+    public String insertarDoctor() {
         mascotaFac.create(mascotaSeleccionado);
-            return "listar_mascota.xhtml?faces-redirect=true";
+        return "listar_mascota.xhtml?faces-redirect=true";
     }
 
     public MascotaFacade getMascotaFac() {
@@ -85,5 +93,6 @@ public class MascotaBean implements Serializable {
     public void setMascotaFiltrado(List<Mascota> MascotaFiltrado) {
         this.MascotaFiltrado = MascotaFiltrado;
     }
+    
 
 }
