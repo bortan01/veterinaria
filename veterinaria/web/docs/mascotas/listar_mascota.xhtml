@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../plantillas/Menu.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="top">
+        top
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="frmMascota" acceptcharset="ISO-8859-1">
+            <p:growl autoUpdate="true" showDetail="true"/>
+            <p:messages autoUpdate="true" closable="true" showDetail="true"/>
+            <p:dataTable id="tabla_mascota"  value="#{mascotaBean.listaMascota}"  var="variable_mascota"         
+
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15"
+                         filteredValue="#{mascotaBean.listaMascota}"
+                         widgetVar="wTablaCita">
+                <f:facet name="header">
+
+                    <p:outputPanel>
+                        <p:outputLabel value="Busqueda" for="globalFilter"/>
+                        <p:inputText id="globalFilter" style="width: 500px" 
+                                     onkeyup="PF('wTablaCita').filter()"/>
+                        <p:commandButton action="ingresar_mascota.xhtml?faces-redirect=true"
+                                         icon="ui-icon-circle-plus"/>
+                    </p:outputPanel>                    
+                </f:facet>
+
+                <p:column headerText="Nombre de mascota" filterBy="#{variable_mascota.nombreMascota}">
+                    <h:outputLabel value="#{variable_mascota.nombreMascota}"/>
+                </p:column>
+                
+            </p:dataTable>
+        </h:form>
+
+        <!-->el idAutor es de output text</!-->
+        
+
+        
+    </ui:define>
+
+</ui:composition>

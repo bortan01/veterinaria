@@ -1,12 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+         <title>CLINICA Veterinaria</title>
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body >
+        <h1 align="center" style="color: red" >
+            SISTEMA DE CLINICA VETERINARIA
+            <img align="middle" src="http://www.ues.edu.sv/october/storage/app/media/minerva2.png" width="100" />
+        </h1>
+        <center>
+            <img src="/clinica_jsp/resources/imagenes/clinica.jpg" width="450" />
+        </center>
+        <br></br>        
+        <p:dock itemWidth="55" position="top" maxWidth="100" proximity="50" >
+            <p:menuitem style="color: #dddddd" outcome="index" value="AGREGAR PACIENTE" 
+                        icon="/resources/imagenes/paciente.png"  />
+            
+            <p:menuitem style="color: #dddddd" outcome="docs/mascotas/listar_mascota" value="AGREGAR PACIENTE" 
+                        icon="/resources/imagenes/paciente.png"  />
+            
+                       
+        </p:dock>       
     </h:body>
 </html>
 
