@@ -19,18 +19,16 @@ public class AutucompleteBeanMascota implements Serializable{
     
     public List<Mascota> completeMascotaDespacho(String query) {
         List<Mascota> allMascota = getMascotaData().getListaMascota();
-        List<Mascota> filterDoctor = new ArrayList<Mascota>();
+        List<Mascota> filterMascota = new ArrayList<Mascota>();
         for (Mascota mascotaSelected : allMascota) {
             if (mascotaSelected.getNombreMascota().toLowerCase().startsWith(query)) {
-                filterDoctor.add(mascotaSelected);
+                filterMascota.add(mascotaSelected);
             }
         }
-        return filterDoctor;
+        return filterMascota;
     }
     
-    public AutucompleteBeanMascota() {
-    }
-
+   
     public ListaMascota getMascotaData() {
         return mascotaData;
     }

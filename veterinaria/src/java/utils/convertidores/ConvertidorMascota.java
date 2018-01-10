@@ -1,6 +1,5 @@
 package utils.convertidores;
 
-
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -8,14 +7,11 @@ import javax.faces.convert.FacesConverter;
 import modelo.entidades.Mascota;
 import utils.lista.ListaMascota;
 
-@FacesConverter ("ConvertidorMascota")
+@FacesConverter ("convertidorMascota")
 
 
 public class ConvertidorMascota implements Converter{
 
-    /**
-     * Creates a new instance of ConvertidorMascota
-     */
     public ConvertidorMascota() {
     }
 

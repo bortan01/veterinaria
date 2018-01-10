@@ -21,10 +21,10 @@ public class MascotaBean implements Serializable {
     @Inject
     MascotaFacade mascotaFac;
 
-//     @ManagedProperty("#{autocompleteBeanDuenio}")
-//     AutocompleteBeanDuenio auD;
+    @ManagedProperty("#{autocompleteBeanDuenio}")
+    AutocompleteBeanDuenio auD;
 
-    @ManagedProperty("#{autocompleteBeanEspecie}")
+   @ManagedProperty("#{autocompleteBeanEspecie}")
     AutocompleteBeanEspecie auE;  
     
     Mascota mascotaSeleccionado;
@@ -92,6 +92,22 @@ public class MascotaBean implements Serializable {
 
     public void setMascotaFiltrado(List<Mascota> MascotaFiltrado) {
         this.MascotaFiltrado = MascotaFiltrado;
+    }
+
+    public AutocompleteBeanDuenio getAuD() {
+        return auD;
+    }
+
+    public void setAuD(AutocompleteBeanDuenio auD) {
+        this.auD = auD;
+    }
+
+    public AutocompleteBeanEspecie getAuE() {
+        return auE;
+    }
+
+    public void setAuE(AutocompleteBeanEspecie auE) {
+        this.auE = auE;
     }
     
 
